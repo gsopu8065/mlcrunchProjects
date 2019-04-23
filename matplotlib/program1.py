@@ -6,7 +6,6 @@ def simple():
     plt.show()
 
 def multipleLine():
-    # evenly sampled time at 200ms intervals
     t = np.arange(0., 5., 0.2)
 
     # red dashes, blue squares and green triangles
@@ -22,3 +21,5 @@ def barPlot():
     plt.show()
 
 barPlot()
+#multipleLine()
+#scatterPlot()

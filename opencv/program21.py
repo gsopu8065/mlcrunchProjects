@@ -17,21 +17,7 @@ cv2.imshow("Threshold", thresh)
 def task1():
     contours = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
     contours = contours[0] if len(contours) == 2 else contours[1]
-
-    #start
-    for c in contours:
-        # approximate the contour
-        peri = cv2.arcLength(c, True)
-        approx = cv2.approxPolyDP(c, 0.01 * peri, True)
-
-        print(len(approx))
-        (x, y, w, h) = cv2.boundingRect(c)
-        if len(approx) == 4: #for rectangle
-            cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0), 2)
-
-    #end
-
-    #cv2.drawContours(image, contours, -1, (255, 0, 0), 2)
+    cv2.drawContours(image, contours, -1, (255, 0, 0), 2)
     cv2.imshow("All EXTERNAL Contours", image)
 
 
