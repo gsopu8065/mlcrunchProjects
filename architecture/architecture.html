@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mermaid Quick Test Page</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=">
+</head>
+<body>
+<div class="mermaid">
+    graph TD
+    User[fa:fa-user-graduate Student] -->|Open mlcrunch.com| Wix(Wix)
+    Wix --> |Wix Loads site|L(Wix)
+    L -->|Load Vuejs App from S3| Vuejs
+    Vuejs--> | To Validate Qui|QuizLambda(Quiz Lambda)
+    Vuejs--> | To Fetch Progress |ProgressLambda(Progress Lambda)
+    ProgressLambda-->|Load User Progress from db| Progress[fa:fa-database Progress]
+    QuizLambda-->|Load Quiz from S3| Quiz[fa:fa-vial Quiz]
+    Progress --> | CRUD | MongoDB[fa:fa-database MongoDB ]
+    Quiz--> | CRUD| MongoDB[fa:fa-database MongoDB ]
+    MongoDB --> |mLab|mLab[mLab]
+</div>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<script>
+    var config = {
+        startOnLoad:true,
+        flowchart:{
+            useMaxWidth:true,
+            htmlLabels:true
+        }
+    };
+    mermaid.initialize({startOnLoad: true, theme: 'forest'});
+</script>
+</body>
+</html>
