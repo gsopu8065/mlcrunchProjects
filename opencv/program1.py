@@ -3,6 +3,9 @@
 #<pre class="prettyprint linenums"><code class="language-py">
 import cv2
 
+
+print(cv2.__version__)
+
 image = cv2.imread('./bill.png', cv2.IMREAD_GRAYSCALE)
 print("width: {0} pixels".format(image.shape[1]))
 print("height: {0} pixels".format(image.shape[0]))
