@@ -5,12 +5,13 @@ from sklearn.model_selection import train_test_split
 from sklearn import metrics
 
 #step1: load the training data
-df = pd.read_csv('./SMSSpamCollection', delimiter='\t',header=None)
-print("Training data ", df.shape)
+emails = pd.read_csv('./SMSSpamCollection', delimiter='\t', header=None)
+print("Loaded data ", emails.shape)
+print(emails.head(5))
 
 #step2: split the training data in to two sets
 vectorizer = TfidfVectorizer()
-trainDataRaw, testDataRaw, trainLabels, testLabels = train_test_split(df[1],df[0])
+trainDataRaw, testDataRaw, trainLabels, testLabels = train_test_split(emails[1], emails[0], test_size=0.2, random_state = 42)
 trainData = vectorizer.fit_transform(trainDataRaw)
 testData = vectorizer.transform(testDataRaw)
 print("Training data: "+str(len(trainDataRaw)))
