@@ -59,7 +59,7 @@ print("Training Labels: {}".format(len(trainLabels)))
 print("Test data: {}".format(len(testData)))
 print("Test labels: {}".format(len(testLabels)))
 
-clf = svm.SVC(C=1000)
+clf = svm.SVC(C=100)
 
 # Train the model using the training sets
 clf.fit(trainData, trainLabels)

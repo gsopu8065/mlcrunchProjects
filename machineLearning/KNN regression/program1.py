@@ -16,7 +16,7 @@ print("Test data: {}".format(len(testData)))
 print("Total data: {}".format(len(df_knn)))
 
 #step3: Create a model and train it with the training data
-model = KNeighborsRegressor(n_neighbors=5)
+model = KNeighborsRegressor(n_neighbors=7)
 model.fit(trainData, trainLabels)
 
 #step4: Use the trained model for prediction

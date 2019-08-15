@@ -17,7 +17,7 @@ print("Training data: {}".format(len(trainData)))
 print("Test data: {}".format(len(testData)))
 
 #step3: create a model and train the data
-model = KNeighborsClassifier(n_neighbors=10)
+model = KNeighborsClassifier(n_neighbors=20)
 model.fit(trainData, trainLabels)
 
 #step4: test the model to predict testdata
