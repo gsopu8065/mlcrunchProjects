@@ -56,8 +56,8 @@ def pointsCount():
     cv2.imshow("One percent", image)
     cv2.waitKey(0)
 
-#beforeApprox()
-#afterApprox()
+beforeApprox()
+afterApprox()
 #pointsCount()
 #cv2.imshow("All Contours", image)
 

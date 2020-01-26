@@ -59,7 +59,7 @@ print("Training Labels: {}".format(len(trainLabels)))
 print("Test data: {}".format(len(testData)))
 print("Test labels: {}".format(len(testLabels)))
 
-clf = svm.SVC(C=100)
+clf = svm.SVC(C=100, probability=True)
 
 # Train the model using the training sets
 clf.fit(trainData, trainLabels)
@@ -81,7 +81,23 @@ def testImage(imagePath):
     cv2.waitKey(0)
 
 
-testImage('./flowers/daisy/image_0801.jpg')
-testImage('./flowers/sunflower/image_0721.jpg')
-testImage('./flowers/fritillary/image_0644.jpg')
-testImage('./flowers/tigerlily/image_0484.jpg')
+#this function prints the probablity of the each category
+def probability(imagePath):
+    image = cv2.imread(imagePath)
+
+    # get probablities by using predict_proba function
+    results = clf.predict_proba(getFeatures(image).reshape(1, -1))[0]
+
+    # format it into percentage
+    results = list(map(lambda x: format(x*100, 'f'), results))
+
+    #map each label and display it probability
+    for label, probability in zip(namelabels, results):
+        print(" "+label+" ----> "+probability+"%")
+
+probability('./flowers/daisy/image_0801.jpg')
+
+#testImage('./flowers/daisy/image_0801.jpg')
+#testImage('./flowers/sunflower/image_0721.jpg')
+#testImage('./flowers/fritillary/image_0644.jpg')
+#testImage('./flowers/tigerlily/image_0484.jpg')

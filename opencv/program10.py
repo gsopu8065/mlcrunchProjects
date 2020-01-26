@@ -30,9 +30,10 @@ def masking():
     maskedImage = cv2.bitwise_and(image, image, mask=circle)
     cv2.imshow("Mask Applied to Image", maskedImage)
 
-masking()
+print(cv2.bitwise_and(cv2.UMat(np.array([10, 255, 50])), cv2.UMat(np.array([25, 285, 13]))).get())
+#masking()
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 
-#https://www.jianshu.com/p/003e9451cdc4
+#Reference: https://www.jianshu.com/p/003e9451cdc4
